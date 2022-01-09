@@ -5,7 +5,7 @@ import { TStore } from "./store/store";
 import logo from "./logo.svg";
 import "./App.css";
 
-export function App() {
+export const App = () => {
   const dispatch = useDispatch();
   const { obj } = useSelector((state: TStore) => state.exampleReducer);
   const handleObjChange = () => {
