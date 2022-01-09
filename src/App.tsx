@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeObj } from "./slices/example";
+import { TStore } from "./store/store";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+export function App() {
+  const dispatch = useDispatch();
+  const { obj } = useSelector((state: TStore) => state.exampleReducer);
+  const handleObjChange = () => {
+    let newObj = {
+      name: "Nutan",
+      surname: "Singh",
+    };
+    dispatch(changeObj({ obj: newObj }));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleObjChange}>Change Name</button>
+      <h2>
+        Name Object: {obj.name} &nbsp;
+        {obj.surname}
+      </h2>
     </div>
   );
 }
 
-export default App;
+// export default App;
