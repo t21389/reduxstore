@@ -2,7 +2,7 @@
   "name": "reduxstore",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
+  "main": "dist/index.tsx",
   "dependencies": {
     "@babel/cli": "^7.16.7",
     "@reduxjs/toolkit": "^1.7.1",
